@@ -1,7 +1,7 @@
 ﻿@using ViewsExample.Models;
 @{
     string appTitle = "Index Title";
-    Person person = new Person() { Name = "Hassan", BirthDate = null };
+    Person person = new Person() { Name = "Hassan", BirthDate = null, PersonGender = Gender.Male };
     // Convert.ToDateTime("2000-07-08")
 }
 <!DOCTYPE html>
@@ -23,7 +23,18 @@
     {
         <h2>Date of Birth is unknown</h2>
     }
-
+    @switch(person.PersonGender)
+    {
+        case Gender.Male:
+            <p>The 19th novamber....</p>
+            ; break;
+        case Gender.Female:
+            <p>The 20th novamber....</p>
+            ; break;
+        case Gender.Other:
+            <p>The 21th novamber....</p>
+            ; break;
+    }
    
 </body>
 </html>
