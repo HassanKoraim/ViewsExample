@@ -1,7 +1,8 @@
 ﻿@using ViewsExample.Models;
 @{
     string appTitle = "Index Title";
-    Person person = new Person() { Name = "Hassan", BirthDate = Convert.ToDateTime("2000-07-08")};
+    Person person = new Person() { Name = "Hassan", BirthDate = null };
+    // Convert.ToDateTime("2000-07-08")
 }
 <!DOCTYPE html>
 <html>
@@ -12,10 +13,17 @@
 <body>
     <h1>Welcome you are in the Index</h1>
     <h2>Hello @person.Name</h2>
-    @{
-        double age = Math.Round(DateTime.Now.Subtract(person.BirthDate).TotalDays / 365.25);
-        // double age = (DateTime.Now - (person.BirthDate)).TotalDays / 365;
+    @if (person.BirthDate.HasValue)
+    {
+        //double? age = Math.Round(DateTime.Now.Subtract(person.BirthDate).TotalDays / 365.25);
+        double age = Math.Round((DateTime.Now - (person.BirthDate)).Value.TotalDays / 365);
+        <h2>@age years old</h2>
     }
-    <h2>@age years old</h2>
+    else
+    {
+        <h2>Date of Birth is unknown</h2>
+    }
+
+   
 </body>
 </html>
