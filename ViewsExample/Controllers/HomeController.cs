@@ -7,7 +7,11 @@ namespace ViewsExample.Controllers
         [Route("home")]
         public IActionResult Index()
         {
-            return View();
+            /*
+             * by default, it will look for a view named Index,
+               in a folder named Views then subfolder named Home
+             */
+            return View(); 
         }
     }
 }
