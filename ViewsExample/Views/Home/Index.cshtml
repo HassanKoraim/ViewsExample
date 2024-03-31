@@ -22,43 +22,48 @@
 <html>
 <head>
     @* <title>@appTitle</title> *@
-    <title>@ViewData["appTitle"]</title>
+    @* <title>@ViewData["appTitle"]</title> *@
+    <title>@ViewBag.appTitle</title>
     <meta charset="utf-8" />
     <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
     <body>
+        <div class="page-content">
         <h1>Welcome you are in the Index</h1>
-         @{
-            List<Person>? people = (List<Person>?)ViewData["people"];
-         }
-        @foreach (Person person in people)
+        @{
+          //  List<Person>? people = (List<Person>?)ViewData["people"];
+        }
+        @foreach (Person person in ViewBag.people)
         {
-            <div>
+            <div class="box">
                 @*Person name*@
                 @if (person.Name != null)
                 {
-                <span>Hello @person.Name</span>
-                }else
-                {
-                <h2>Your name is Unknown</h2>
-                }
-                <span>, </span>
-                @*person BirthDate*@
-                @if(person.BirthDate.HasValue)
-                {
-                <span>Age: @GetAge(person.BirthDate) years old</span>
+                    <span>Hello @person.Name</span>
                 }
                 else
                 {
-                <span>Date of Birth is unknown</span>
+                    <h2>Your name is Unknown</h2>
+                }
+                <span>, </span>
+                @*person BirthDate*@
+                @if (person.BirthDate.HasValue)
+                {
+                    <span>Age: @GetAge(person.BirthDate) years old</span>
+                }
+                else
+                {
+                    <span>Date of Birth is unknown</span>
                 }
                 @*person Gender*@
 
 
             </div>
-        
+
         }
 
+        </div>
+        
    
     </body>
 </html>
