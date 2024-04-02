@@ -1,0 +1,52 @@
+﻿@using ViewsExample.Models 
+@model Person
+
+@{
+    double? GetAge(DateTime? dateofBirth)
+    {
+        if (dateofBirth.HasValue)
+        {
+            return Math.Round((DateTime.Now - dateofBirth).Value.TotalDays / 365);
+        }
+        return null;
+    }
+
+
+}
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Person Details</title>
+            <meta charset="utf-8"/>
+            <link href="~/StyleSheet.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div class="page-content">
+                <h1>Person Details</h1>
+                <div class="box">
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Birth Date
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.Name
+                    </td>
+                    <td>@GetAge(Model.BirthDate)</td>
+                    <td>@Model.PersonGender</td>
+                </tr>
+            </table>
+                </div>
+        <a href="/Home">Back to Persons</a>
+
+            </div>
+        </body>
+    </html>

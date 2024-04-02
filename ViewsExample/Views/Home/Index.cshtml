@@ -1,11 +1,5 @@
 ﻿@using ViewsExample.Models;
-@{
-            /*
-            *  Person person = new Person() { Name = "Hassan", BirthDate = null, PersonGender = Gender.Male };
-              // Convert.ToDateTime("2000-07-08") 
-            */
-    
-}
+@model List<Person>
 @{
         double? GetAge(DateTime? dateofBirth)
         {
@@ -29,41 +23,46 @@
 </head>
     <body>
         <div class="page-content">
-        <h1>Welcome you are in the Index</h1>
+        <h1>Person</h1>
         @{
           //  List<Person>? people = (List<Person>?)ViewData["people"];
         }
-        @foreach (Person person in ViewBag.people)
+        @foreach (Person person in Model)
         {
-            <div class="box">
-                @*Person name*@
-                @if (person.Name != null)
-                {
-                    <span>Hello @person.Name</span>
-                }
-                else
-                {
-                    <h2>Your name is Unknown</h2>
-                }
-                <span>, </span>
-                @*person BirthDate*@
-                @if (person.BirthDate.HasValue)
-                {
-                    <span>Age: @GetAge(person.BirthDate) years old</span>
-                }
-                else
-                {
-                    <span>Date of Birth is unknown</span>
-                }
-                @*person Gender*@
-
-
-            </div>
-
+                <div class="box">
+                    @*Person name*@
+                    <table class="table">
+                    @if (person.Name != null)
+                    {
+                        <span>Hello @person.Name</span>
+                    }
+                    else
+                    {
+                        <h2>Your name is Unknown</h2>
+                    }
+                    <span>, </span>
+                    @*person BirthDate*@
+                    @if (person.BirthDate.HasValue)
+                    {
+                        <span>Age: @GetAge(person.BirthDate) years old</span>
+                    }
+                    else
+                    {
+                        <span>Date of Birth is unknown</span>
+                    }
+                    @*person Gender*@
+                     <div><a href="person-details/@person.Name">Details</a> </div>
+                                         <div>
+                         <a href="/person-with-products">Person And Product</a
+                    </div>
+                    </table>
+                    
+                </div>
         }
+       
 
         </div>
-        
+
    
     </body>
 </html>

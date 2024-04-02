@@ -1,0 +1,63 @@
+﻿@using ViewsExample.Models;
+@model PersonAndProductWrapperClass
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person And Product</title>
+    <meta charset="utf-8" />
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-content">
+        <h1>Person And Product</h1>
+        <div class="box w-100">
+            <h3>Person</h3>
+            <table class="table w-100">
+                <tr>
+                    <td>
+                        Name: 
+                    </td>
+                    <td>
+                        @Model.PersonData.Name
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Birth Date: 
+                    </td>
+                    <td>
+                        @Model.PersonData.BirthDate.Value.ToString("dd/MM/yyyy")
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="box w-100">
+            <h3>Product</h3>
+            <table class="table w-100">
+                <tr>
+                    <td>
+                        Product Name: 
+                    </td>
+                    <td>
+                        @Model.ProductData.ProductName
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Product Id
+                    </td>
+                    <td>
+                        @Model.ProductData.ProductId
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
