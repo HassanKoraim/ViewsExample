@@ -1,5 +1,4 @@
-﻿@using ViewsExample.Models;
-@model List<Person>
+﻿@model List<Person>
 @{
         double? GetAge(DateTime? dateofBirth)
         {
@@ -48,18 +47,19 @@
                     }
                     else
                     {
+                           
                         <span>Date of Birth is unknown</span>
                     }
                     @*person Gender*@
                      <div><a href="person-details/@person.Name">Details</a> </div>
-                                         <div>
-                         <a href="/person-with-products">Person And Product</a
-                    </div>
+                                        
                     </table>
-                    
+
                 </div>
         }
-       
+                 <div>
+                           <a href="/person-with-products">Person And Product</a
+                 </div>
 
         </div>
 
