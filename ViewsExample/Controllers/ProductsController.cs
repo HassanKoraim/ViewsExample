@@ -8,6 +8,8 @@ namespace ViewsExample.Controllers
         public IActionResult All()
         {
             return View();
+            //Views/Products/All.cshtml
+            //Views/Shared/All.cshtml  
         }
     }
 }
